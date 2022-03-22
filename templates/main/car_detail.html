@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cache %}
+
+
+{% block page_title %}
+    {{car.title}}
+{% endblock page_title %}
+
+{% block json-ld %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "{{ car.title }}",
+      "image": "",
+      "description": "{{ car.description }}",
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ car.get_absolute_url }}",
+        "priceCurrency": "EUR",
+        "price": "{{ car.price }}",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/UsedCondition",
+      }
+    }
+  </script>
+{% endblock json-ld %}
+
+
+{% block content %}
+
+    {{car.title}}\{{car.brand}}
+
+    {{new_price}}
+    
+    {{car.price}}
+    
+
+
+{% endblock %}

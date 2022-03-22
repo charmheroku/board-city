@@ -1,0 +1,65 @@
+{% load static %}
+{% load thumbnail %}
+
+<header class="navbar navbar-expand-lg navbar-light fixed-top" data-scroll-header>
+    <div class="container">
+      <a class="navbar-brand me-3 me-xl-4" href="{% url 'main:main_page' %}"><img class="d-block" src="{% static 'img/logo/logo-dark.svg'%}" width="116" alt="Finder"></a>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="{% url 'account_signup' %}"><i class="fi-user me-2"></i>SignUp</a>
+      <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Чат-бот</a>
+      <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3"><a class="d-block py-2" href="real-estate-account-info.html">
+            
+        {% if user.is_authenticated %}
+          {% if user.seller %}   
+            {% thumbnail user.seller.avatar "50x50" crop="center" as im %}
+                  <img class="rounded-circle" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }} alt="{{user.username}}">
+            {% endthumbnail %}
+        
+        <div class="dropdown-menu dropdown-menu-end">
+          <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;">
+            {% thumbnail user.seller.avatar "50x50" crop="center" as im %}
+                  <img class="rounded-circle" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }} alt="{{user.username}}">
+            {% endthumbnail %}
+            <div class="ps-2">
+              <h6 class="fs-base mb-0">{{user.username}}</h6><span class="star-rating star-rating-sm"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
+              <div class="fs-xs py-2">(302) 555-0107<br>{{user.email}}</div>
+            </div>
+          </div><a class="dropdown-item" href="real-estate-account-info.html"><i class="fi-user opacity-60 me-2"></i>Personal Info</a><a class="dropdown-item" href="real-estate-account-security.html"><i class="fi-lock opacity-60 me-2"></i>Password &amp; Security</a><a class="dropdown-item" href="real-estate-account-properties.html"><i class="fi-home opacity-60 me-2"></i>My Properties</a><a class="dropdown-item" href="real-estate-account-wishlist.html"><i class="fi-heart opacity-60 me-2"></i>Wishlist</a><a class="dropdown-item" href="real-estate-account-reviews.html"><i class="fi-star opacity-60 me-2"></i>Reviews</a><a class="dropdown-item" href="real-estate-account-notifications.html"><i class="fi-bell opacity-60 me-2"></i>Notifications</a>
+          <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Help</a><a class="dropdown-item" href="#">Sign Out</a>
+        </div>
+          {% else %}
+          <p>Welcome, You are logged in as {{ user.username }}</p>
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+        <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
+          <!-- Category-->
+          <li class="nav-item dropdown py-2 me-lg-2"><a class="nav-link dropdown-toggle align-items-center border-end-lg py-1 pe-lg-4" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="fi-layers me-2"></i>Категории</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#"><i class="fi-building fs-base opacity-50 me-2"></i>Категория 1</a></li>
+              <li class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#"><i class="fi-car fs-base opacity-50 me-2"></i>Категория 2</a></li>
+              <li class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#"><i class="fi-briefcase fs-base opacity-50 me-2"></i>Категрия 3</a></li>
+            </ul>
+          </li>
+          <!-- Menu items-->
+          <li class="nav-item">
+              <a class="nav-link" href="/about">О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contacts">Контакты</a>
+          </li>
+          <li class="nav-item dropdown d-lg-none"><a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img class="rounded-circle me-2" src="{% static 'img/avatars/30.jpg' %}" width="30" alt="{{user.username}}">{{user.username}}</a>
+            <div class="dropdown-menu">
+              <div class="ps-3"><span class="star-rating star-rating-sm"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
+                <div class="fs-xs py-2">(302) 555-0107<br>{{user.email}}</div>
+              </div><a class="dropdown-item" href="real-estate-account-info.html"><i class="fi-user opacity-60 me-2"></i>Personal Info</a><a class="dropdown-item" href="real-estate-account-security.html"><i class="fi-lock opacity-60 me-2"></i>Password &amp; Security</a><a class="dropdown-item" href="real-estate-account-properties.html"><i class="fi-home opacity-60 me-2"></i>My Properties</a><a class="dropdown-item" href="real-estate-account-wishlist.html"><i class="fi-heart opacity-60 me-2"></i>Wishlist</a><a class="dropdown-item" href="real-estate-account-reviews.html"><i class="fi-star opacity-60 me-2"></i>Reviews</a><a class="dropdown-item" href="real-estate-account-notifications.html"><i class="fi-bell opacity-60 me-2"></i>Notifications</a>
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Help</a><a class="dropdown-item" href="#">Sign Out</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+</header>

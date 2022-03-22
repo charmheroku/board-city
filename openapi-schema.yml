@@ -1,0 +1,653 @@
+openapi: 3.0.2
+info:
+  title: 'Доска объявлений'
+  version: '1.0'
+paths:
+  /api/v1/adverts/cars/:
+    get:
+      operationId: listCarAdverts
+      description: ''
+      parameters:
+      - name: is_published
+        required: false
+        in: query
+        description: is_published
+        schema:
+          type: string
+      - name: is_archive
+        required: false
+        in: query
+        description: is_archive
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Car'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createCarAdvert
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Car'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Car'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Car'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+          description: ''
+      tags:
+      - api
+  /api/v1/adverts/cars/{id}/:
+    get:
+      operationId: retrieveCarAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Авто."
+        schema:
+          type: string
+      - name: is_published
+        required: false
+        in: query
+        description: is_published
+        schema:
+          type: string
+      - name: is_archive
+        required: false
+        in: query
+        description: is_archive
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateCarAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Авто."
+        schema:
+          type: string
+      - name: is_published
+        required: false
+        in: query
+        description: is_published
+        schema:
+          type: string
+      - name: is_archive
+        required: false
+        in: query
+        description: is_archive
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Car'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Car'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Car'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateCarAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Авто."
+        schema:
+          type: string
+      - name: is_published
+        required: false
+        in: query
+        description: is_published
+        schema:
+          type: string
+      - name: is_archive
+        required: false
+        in: query
+        description: is_archive
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Car'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Car'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Car'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyCarAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Авто."
+        schema:
+          type: string
+      - name: is_published
+        required: false
+        in: query
+        description: is_published
+        schema:
+          type: string
+      - name: is_archive
+        required: false
+        in: query
+        description: is_archive
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/v1/adverts/things/:
+    get:
+      operationId: listThingsAdverts
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Thing'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createThingsAdvert
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Thing'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Thing'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Thing'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Thing'
+          description: ''
+      tags:
+      - api
+  /api/v1/adverts/things/{id}/:
+    get:
+      operationId: retrieveThingsAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Вещи."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Thing'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateThingsAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Вещи."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Thing'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Thing'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Thing'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Thing'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateThingsAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Вещи."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Thing'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Thing'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Thing'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Thing'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyThingsAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Вещи."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/v1/adverts/services/:
+    get:
+      operationId: listServicesAdverts
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Service'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createServicesAdvert
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Service'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Service'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+      tags:
+      - api
+  /api/v1/adverts/services/{id}/:
+    get:
+      operationId: retrieveServicesAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Услуги
+          ."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateServicesAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Услуги
+          ."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Service'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Service'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateServicesAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Услуги
+          ."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Service'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Service'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyServicesAdvert
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this Объявления Услуги
+          ."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Car:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        seller:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            username:
+              type: string
+              description: "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            first_name:
+              type: string
+              maxLength: 150
+            last_name:
+              type: string
+              maxLength: 150
+            email:
+              type: string
+              format: email
+              maxLength: 254
+          required:
+          - username
+          readOnly: true
+        tags:
+          type: string
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        price:
+          type: integer
+        is_archive:
+          type: boolean
+        is_sold:
+          type: boolean
+        is_published:
+          type: boolean
+        brand:
+          type: string
+          maxLength: 200
+        model:
+          type: string
+          maxLength: 200
+        year:
+          type: integer
+          maximum: 2021
+          minimum: 1900
+          description: "Введите год в формате: YYYY"
+        color:
+          type: string
+          maxLength: 200
+        category:
+          type: integer
+      required:
+      - tags
+      - title
+      - description
+      - brand
+      - model
+      - year
+      - color
+      - category
+    Thing:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        seller:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            username:
+              type: string
+              description: "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            first_name:
+              type: string
+              maxLength: 150
+            last_name:
+              type: string
+              maxLength: 150
+            email:
+              type: string
+              format: email
+              maxLength: 254
+          required:
+          - username
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        price:
+          type: integer
+        is_archive:
+          type: boolean
+        is_sold:
+          type: boolean
+        is_published:
+          type: boolean
+        condition:
+          enum:
+          - new
+          - old
+          type: string
+        category:
+          type: integer
+      required:
+      - title
+      - description
+      - category
+    Service:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        seller:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            username:
+              type: string
+              description: "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            first_name:
+              type: string
+              maxLength: 150
+            last_name:
+              type: string
+              maxLength: 150
+            email:
+              type: string
+              format: email
+              maxLength: 254
+          required:
+          - username
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        price:
+          type: integer
+        is_archive:
+          type: boolean
+        is_sold:
+          type: boolean
+        is_published:
+          type: boolean
+        full_adress:
+          type: string
+          maxLength: 255
+        category:
+          type: integer
+      required:
+      - title
+      - description
+      - full_adress
+      - category

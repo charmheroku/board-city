@@ -1,0 +1,12 @@
+<!-- Tags-->
+<div class="card card-flush pb-2 pb-lg-0 mb-4">
+    <div class="card-body">
+      <h4 class="h5">Популярные теги</h4>
+      <div class="d-flex flex-wrap mb-n1">
+      
+        {% for tag in tags %}
+          <a href="?tag={{ tag.0 }}" class="btn btn-xs btn-outline-secondary rounded-pill fs-sm fw-normal me-2 mb-2">{{tag.0}}</a>
+        {% endfor %} 
+      </div>
+    </div>
+</div>

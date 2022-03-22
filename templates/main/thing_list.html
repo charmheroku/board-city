@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Вещи
+{% endblock page_title %}
+
+{% block tags %}
+    {% include "partials/tags_sidebar.html" %}                  
+{% endblock tags %} 
+
+{% block content %}
+
+
+    <!-- Catalog grid-->
+    <div class="row g-4 py-4">
+        {% for thing in things %}
+            {% include "partials/cards/thing_card.html" %}
+        {% endfor %}
+    </div>
+
+    {% include "partials/paginator.html" %}
+    
+
+{% endblock %}

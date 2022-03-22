@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load invert_string %}
+
+{% block page_title %}
+    Home
+{% endblock page_title %}
+
+{% block json-ld %}
+  <script type="application/ld+json">
+    {
+      "@context":"http://schema.org",
+      "@type":"WebSite",
+      "name":"Avito-Clone",
+      "alternateName":"Avito",
+      "url":"https://www.avito-clone.ru"
+    }
+  </script>
+{% endblock json-ld %}
+
+
+{% block content %}
+
+{% if is_mobile %}
+    Мобильная версия сайта
+{% else %} 
+    <h1>{{'Привет,Мир!'|invert_string}}</h1>
+    <h3>{% now "H:i:s" %}</h3>
+{% endif %}
+
+{% endblock %}

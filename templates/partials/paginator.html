@@ -1,0 +1,28 @@
+{% load invert_string %}
+
+<!-- Pagination-->
+{% if is_paginated %}
+                                   
+        <nav class="border-top pb-md-4 pt-4 flex items-center justify-center mx-auto container fixed-bottom position-absolute" aria-label="Pagination">
+            <ul class="pagination mb-1">
+
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?{% url_replace request 'page' page_obj.previous_page_number %}" aria-label="Prev"><i class="fi-chevron-left"></i></a></li>
+                {% endif %}
+
+                {% for i in paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">{{ i }}<span class="visually-hidden">(current)</span></span></li>
+                    {% else %}
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?{% url_replace request 'page' page_obj.next_page_number %}" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+                {% endif %}
+                    
+            </ul>
+
+        </nav>          
+    {% endif %}

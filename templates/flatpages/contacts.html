@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    {{ flatpage.title }}    
+{% endblock page_title %}
+
+{% block json-ld %}
+    <script type='application/ld+json'>
+        {
+            "@context": "http://www.schema.org",
+            "@type": "Organization",
+            "name": "Доска объявлений",
+            "description": "Наши контакты",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "City",
+                "addressCountry": "Country"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+300000000000"
+            }
+        }
+    </script>
+
+{% endblock json-ld %}
+    
+
+
+{% block content %}
+    {{ flatpage.content }}
+{% endblock %}

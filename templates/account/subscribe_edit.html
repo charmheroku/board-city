@@ -1,0 +1,26 @@
+{% extends 'partials/account_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block page_title %}
+    Уведомления и подписки
+{% endblock page_title %}
+
+
+{% block content %}
+    <div class="col-lg-8 col-md-7 mb-5">
+    <h1 class="h2">Уведомления и подписки</h1>
+    <div class="border rounded-3 p-3 mb-4" id="personal-info">
+        <form method="post">
+            {% csrf_token %}
+            {% render_field form.сategory_subscribe %}
+            <div class="d-flex align-items-center justify-content-between border-top mt-4 pt-4 pb-1">
+                <button class="btn btn-primary px-3 px-sm-4" type="submit">Обновить</button>
+            </div>
+        
+        </form>
+    </div>
+    
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    {{service.title}}
+{% endblock page_title %}
+
+{% block json-ld %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "{{ service.title }}",
+      "image": "",
+      "description": "{{ service.description }}",
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ service.get_absolute_url }}",
+        "priceCurrency": "EUR",
+        "price": "{{ service.price }}",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/UsedCondition",
+      }
+    }
+  </script>
+{% endblock json-ld %}
+
+
+{% block content %}
+
+    {{service.title}}\{{service.full_adress}}
+
+{% endblock %}

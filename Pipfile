@@ -1,0 +1,46 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+black = "*"
+
+[packages]
+django = "*"
+django-dotenv = "*"
+django-ckeditor = "*"
+django-constance = {extras = ["database"], version = "*"}
+django-widget-tweaks = "*"
+django-taggit = "*"
+sorl-thumbnail = "*"
+pillow = "*"
+django-allauth = "*"
+django-apscheduler = "*"
+celery = "*"
+eventlet = "*"
+redis = "*"
+django-celery-beat = "*"
+django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
+twilio = "*"
+django-redis = "*"
+pytest-django = "*"
+sphinx = "*"
+django-stubs = "*"
+channels = "*"
+django-seed = "*"
+faker-vehicle = "*"
+psycopg2 = "*"
+pyyaml = "*"
+ua-parser = "*"
+user-agents = "*"
+djangorestframework = "*"
+django-taggit-serializer = "*"
+django-filter = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
